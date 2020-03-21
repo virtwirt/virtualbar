@@ -1,11 +1,11 @@
-function create(){
+function createRooms(){
     // Vom Backend holen (Raumanzahl)
     var rooms = 5
 
     for(var i = 0; i < rooms; i++) {
         // Container hinzufügen
         var obj = document.createElement("div")
-        obj.setAttribute("id", 'c${i}')
+        obj.setAttribute("id", 'c' + i)
         obj.setAttribute("class", "column")
         document.getElementById('row').appendChild(obj)
 
@@ -14,7 +14,7 @@ function create(){
         table.setAttribute("class", "ui image")
         table.setAttribute("src", "table.jpg")
         table.setAttribute("onclick", "window.location.href = 'tisch.html'")
-        document.getElementById('c${i}').appendChild(table)
+        document.getElementById('c' + i).appendChild(table)
 
         // Sitzplätze
         // vom Backend Sitzplätze für entsprechenden Raum holen
@@ -23,7 +23,26 @@ function create(){
             var seat = document.createElement("img")
             seat.setAttribute("class", "ui avatar image")
             seat.setAttribute("src", "user.jpg")
-            document.getElementById('c${i}').appendChild(seat)
+            document.getElementById('c' + i).appendChild(seat)
         }
+    }
+}
+
+function createBars(){
+    // Vom Server holen
+    var bars =
+    [{
+        name:       "Bar1",
+        id:         "adhwndwa",
+        maxGuests:  20,
+        guests:     10
+   }]
+
+    for(var i = 0; i < bars.length; i++) {
+        var obj = document.createElement("li")
+        obj.setAttribute("id","l" + i)
+        obj.setAttribute("onclick", "window.location.href = 'bar.html'")
+        document.getElementById("list").appendChild(obj)
+        document.getElementById("l" + i).innerHTML = bars[i].name
     }
 }
