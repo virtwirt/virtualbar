@@ -13,7 +13,8 @@
 
 		.scrolli{
 		    max-height: 50%;
-            overflow: scroll;
+            min-height: 50%;
+            overflow-y: auto;
 		}
 	  </style>
 </head>
@@ -47,13 +48,25 @@
     </div>
 </div>
 
-<div class="ui centered grid">
+<div class="ui centered grid" style="height: inherit;">
     <div class="row" id="test">
         <div class="twelve wide column scrolli">
             <div class="ui segment">
                 <div class="ui list" id="messageArea"></div>
             </div>
         </div>
+    </div>
+    <div class="ui attached segment">
+        <form id="messageForm" name="messageForm">
+            <div class="form-group">
+                <div class="input-group clearfix">
+                    <div class="ui fluid action input">
+                        <input type="text" id="message" placeholder="Nachricht hier schreiben..." autocomplete="off" class="form-control"/>
+                        <div type="button" id="send-button"class="ui button primary">Search</div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 <div id="chat-page" class="hidden">
@@ -62,14 +75,7 @@
             Verbindung wird hergestellt...
         </div>
 
-        <form id="messageForm" name="messageForm">
-            <div class="form-group">
-                <div class="input-group clearfix">
-                    <input type="text" id="message" placeholder="Nachricht hier schreiben..." autocomplete="off" class="form-control"/>
-                    <button type="button" class="primary" id="send-button">Senden</button>
-                </div>
-            </div>
-        </form>
+
     </div>
 </div>
 
