@@ -7,6 +7,7 @@ import org.wirvsvirushackathon.digitalbar.domain.Room;
 import org.wirvsvirushackathon.digitalbar.repository.RoomRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RoomServiceImpl implements RoomService {
@@ -14,35 +15,24 @@ public class RoomServiceImpl implements RoomService {
     @Autowired
     private RoomRepository roomRepository;
 
-    @Override
-    public Room createRoom(String name) {
-        Room room = new Room(name);
 
+    @Override
+    public Optional<Room> findById(long id) {
+        return roomRepository.findById(id);
+    }
+
+    @Override
+    public Room save(Room room) {
         return roomRepository.save(room);
     }
 
     @Override
-    public Room getRoom(long id) {
-        return roomRepository.findById(id).orElse(null);
+    public void deleteById(long id) {
+        roomRepository.deleteById(id);
     }
 
     @Override
-    public Room updateRoom(long id, String name) {
-        Room room = roomRepository.getOne(id);
-        room.setName(name);
-        // save really needed?
-        roomRepository.save(room);
-
-        return room;
-    }
-
-    @Override
-    public void deleteRoom(long id) {
-       roomRepository.deleteById(id);
-    }
-
-    @Override
-    public List<Room> getAllRooms() {
+    public List<Room> findAll() {
         return roomRepository.findAll();
     }
 }
