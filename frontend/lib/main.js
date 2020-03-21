@@ -36,13 +36,26 @@ function createBars(){
         id:         "adhwndwa",
         maxGuests:  20,
         guests:     10
+   },
+   {
+       name:       "Bar1",
+       id:         "adhwndwa",
+       maxGuests:  20,
+       guests:     10
    }]
 
     for(var i = 0; i < bars.length; i++) {
         var obj = document.createElement("li")
         obj.setAttribute("id","l" + i)
         obj.setAttribute("onclick", "window.location.href = 'bar.html'")
+        obj.setAttribute("class", "text")
+
+        var pTemp = document.createElement("p")
+        var text = document.createTextNode(bars[i].name + " " + bars[i].guests + "/" + bars[i].maxGuests)
+
+        pTemp.appendChild(text)
+        obj.appendChild(pTemp)
+
         document.getElementById("list").appendChild(obj)
-        document.getElementById("l" + i).innerHTML = bars[i].name
     }
 }
