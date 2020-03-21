@@ -25,7 +25,7 @@ function connect(event) {
         usernamePage.classList.add('hidden');
         chatPage.classList.remove('hidden');
 
-        var socket = new SockJS('63.32.57.139:8080/chat');
+        var socket = new SockJS('http://63.32.57.139:8080/chat');
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, onConnected, onError);
@@ -117,3 +117,4 @@ function getAvatarColor(messageSender) {
 }
 
 messageButton.addEventListener('click', sendMessage, true)
+userNameButton.addEventListener('click', connect, true)
