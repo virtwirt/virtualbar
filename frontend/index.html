@@ -59,7 +59,7 @@
 	var isWelc2 = false;
 	var cnt = 0;
 	var typo = false;
-	setTimeout(function(){welcome();}, 200);
+	setTimeout(function(){welcome();}, 150);
 	var writer = document.createElement('SPAN');
 	var cursor = document.createElement('SPAN');
 	cursor.classList.add('animate-flicker');
@@ -73,7 +73,7 @@
 				var head = document.getElementsByClassName('welcomesmall')[0];
 			}
 			head.removeChild(head.childNodes[head.childNodes.length - 2]);
-			setTimeout(function(){welcome(false);}, 200);
+			setTimeout(function(){welcome(false);}, 150);
 		}else{
 			if(!isWelc1){
 				var head = document.getElementsByClassName('welcomebig')[0];
@@ -91,7 +91,7 @@
 					head.classList.add('smaller');
 					document.getElementsByClassName('welcomesmall')[0].classList.remove('hidden');
 				}
-				setTimeout(function(){welcome(false);}, 200);
+				setTimeout(function(){welcome(false);}, 150);
 				return;
 			}else if(!isWelc2){
 				var head = document.getElementsByClassName('welcomesmall')[0];
@@ -117,9 +117,9 @@
 					document.getElementById('one').classList.remove('hidden');
 				}
 				if(typo){
-					setTimeout(function(){welcome(true);}, 200);
+					setTimeout(function(){welcome(true);}, 150);
 				}else{
-					setTimeout(function(){welcome(false);}, 200);
+					setTimeout(function(){welcome(false);}, 150);
 				}
 
 				return;
