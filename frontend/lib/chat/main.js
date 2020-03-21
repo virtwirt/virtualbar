@@ -81,7 +81,7 @@ function onMessageReceived(payload) {
         userIconElement.classList.add('ui');
         userIconElement.classList.add('avatar');
         userIconElement.classList.add('image');
-        userIconElement.setAttribut('src', 'user.jpg')
+        userIconElement.setAttribute('src', 'user.jpg')
     var msgContentElement = document.createElement('div');
         msgContentElement.classList.add('content');
 
