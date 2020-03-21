@@ -1,9 +1,170 @@
+<!doctype html>
+<html>
 <head>
-    <title>Digital Bar</title>
-    <script src="main.js"></script>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="semantic.min.js"></script>
+    <link rel="stylesheet" href="semantic.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="lib/main.js"></script>
+    <title>DigiBar</title>
+    <style>
+		@keyframes fadeIn{
+		  from { opacity: 0; }
+		}
+		@keyframes fadeTop{
+		  from	{transform: translateY(0);}
+		  to	{transform: translateY(-100vh);}
+		}
+
+		.animate-flicker{
+			animation: fadeIn .3s infinite alternate;
+		}
+		.welcomebig{
+			font-size: 30em;
+			line-height: 1em;
+			text-align: center;
+			color: rgb(40,40,40);
+		}
+		.welcomesmall{
+			font-size: 10em;
+			line-height: 1em;
+			text-align: center;
+			color: rgb(40,40,40);
+		}
+		.hidden{
+			display: none!important;
+		}
+		.navbtn{
+			font-size: 3em!important;
+		}
+		.dwn{
+		    position: absolute;
+			bottom: 2%;
+			left: 50%;
+		}
+		.fadeTop{
+			animation: fadeTop 2s forwards;
+		}
+	</style>
+    <script>
+	var welcomeH1 = 'Hallo...';
+	var welcomeOneArr = welcomeH1.split("");
+	var welcomeH2 = 'Willkommen in der Digitalen Bar!';
+	var welcomeTwoArr = welcomeH2.split("");
+
+	var alph = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'];
+
+	var isWelc1 = false;
+	var isWelc2 = false;
+	var cnt = 0;
+	var typo = false;
+	setTimeout(function(){welcome();}, 200);
+	var writer = document.createElement('SPAN');
+	var cursor = document.createElement('SPAN');
+	cursor.classList.add('animate-flicker');
+	cursor.innerText = '|';
+
+	function welcome(remove){
+		if(remove){
+			if(!isWelc1){
+				var head = document.getElementsByClassName('welcomebig')[0];
+			}else if(!isWelc2){
+				var head = document.getElementsByClassName('welcomesmall')[0];
+			}
+			head.removeChild(head.childNodes[head.childNodes.length - 2]);
+			setTimeout(function(){welcome(false);}, 200);
+		}else{
+			if(!isWelc1){
+				var head = document.getElementsByClassName('welcomebig')[0];
+				if(cnt == 0){
+					head.appendChild(cursor);
+				}
+				var txt = document.createElement('SPAN');
+				txt.innerText = welcomeOneArr[cnt];
+				head.insertBefore(txt, cursor);
+				cnt++;
+				if(cnt == welcomeOneArr.length){
+					cnt = 0;
+					isWelc1 = true;
+					head.removeChild(cursor);
+					head.classList.add('smaller');
+					document.getElementsByClassName('welcomesmall')[0].classList.remove('hidden');
+				}
+				setTimeout(function(){welcome(false);}, 200);
+				return;
+			}else if(!isWelc2){
+				var head = document.getElementsByClassName('welcomesmall')[0];
+				if(cnt == 0){
+					head.appendChild(cursor);
+				}
+
+				if(cnt % 8 == 0 && !typo){
+					var txt = document.createElement('SPAN');
+					txt.innerText = alph[Math.floor(Math.random() * 10)];
+					head.insertBefore(txt, cursor);
+					typo = true;
+				}else{
+					typo = false;
+					var txt = document.createElement('SPAN');
+					txt.innerText = welcomeTwoArr[cnt];
+					head.insertBefore(txt, cursor);
+					cnt++;
+				}
+				if(cnt == welcomeTwoArr.length){
+					cnt = 0;
+					isWelc2 = true;
+					document.getElementById('one').classList.remove('hidden');
+				}
+				if(typo){
+					setTimeout(function(){welcome(true);}, 200);
+				}else{
+					setTimeout(function(){welcome(false);}, 200);
+				}
+
+				return;
+			}else{
+				console.log('Le fin...');
+				return;
+			}
+		}
+	}
+
+	function fadetop(){
+		document.getElementsByClassName('welcome')[0].classList.add('fadeTop');
+		var introElement = document.getElementById('welcome')
+		var introNextBtn = document.getElementById('one')
+		introElement.parentNode.removeChild(introElement);
+		introNextBtn.parentNode.removeChild(introNextBtn);
+		document.getElementById('barlist').classList.remove('hidden');
+	}
+
+</script>
 </head>
+
 <body>
-    <ul id="list">
-    </ul>
-    <script>display()</script>
+<div class="head welcome" id="welcome">
+    <div class="welcomebig"></div>
+    <div class="welcomesmall"></div>
+</div>
+<button class="circular ui icon button dwn navbtn hidden" id="one" onclick="fadetop()">
+    <i class="angle double down icon"></i></a>
+</button>
+<div class="body hidden" id="barlist">
+    <div class="ui icon input">
+        <input type="text" placeholder="Suchen..." id="searchbar">
+        <i class="search icon"></i>
+    </div>
+    <table class="ui green table" style="width: 60%">
+        <thead>
+        <tr><th>Bar-Name</th>
+            <th>Besucher</th>
+            <th>Tags</th>
+        </tr></thead><tbody id="table">
+    </tbody>
+    </table>
+    <script>createBars("")</script>
+</div>
+
 </body>
+</html>
