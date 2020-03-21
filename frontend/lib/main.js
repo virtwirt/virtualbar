@@ -4,13 +4,13 @@ function create(){
 
     for(var i = 0; i < rooms; i++) {
         // Container hinzufügen
-        var obj = createElement("div")
+        var obj = document.createElement("div")
         obj.setAttribute("id", 'c${i}')
         obj.setAttribute("class", "column")
         document.getElementById('row').appendChild(obj)
 
         // Tisch hinzufügen
-        var table = createElement("img")
+        var table = document.createElement("img")
         table.setAttribute("class", "ui image")
         table.setAttribute("src", "table.jpg")
         table.setAttribute("onclick", "$('.ui.modal').modal('show');")
@@ -20,7 +20,7 @@ function create(){
         // vom Backend Sitzplätze für entsprechenden Raum holen
         var count = 4
         for(var j = 0; j < count; j++) {
-            var seat = createElement("img")
+            var seat = document.createElement("img")
             seat.setAttribute("class", "ui avatar image")
             seat.setAttribute("src", "user.jpg")
             document.getElementById('c${i}').appendChild(seat)
