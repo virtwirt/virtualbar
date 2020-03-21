@@ -2,23 +2,32 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="semantic.min.js"></script>
     <link rel="stylesheet" href="semantic.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="lib/main.js"></script>
     <title>Barliste</title>
 </head>
-<div class="fourteen wide column">
-    <h2 class="ui dividing centered header">
-        Willkommen in der ProtoBar
-    </h2>
-</div>
 <body>
+    <div class="fourteen wide column">
+        <h2 class="ui dividing centered header">
+            Willkommen in der ProtoBar
+        </h2>
+    </div>
     <div class="ui icon input">
         <input type="text" placeholder="Suchen..." id="searchbar">
         <i class="search icon"></i>
     </div>
+    <select class="ui fluid search dropdown" multiple="">
+        <option value="">Tags</option>
+        <option value="0">Spiele</option>
+        <option value="1">Voicechat</option>
+        <option value="2">Videochat</option>
+        <option value="3">Textchat</option>
+        <option value="4">Bier</option>
+        <option value="5">Wein</option>
+        <option value="6">U21</option>
+    </select>
     <table class="ui green table" style="width: 60%">
         <thead>
         <tr><th>Bar-Name</th>

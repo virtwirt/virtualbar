@@ -45,6 +45,7 @@ function createBars(filter){
    }]
 
     document.getElementById("searchbar").addEventListener("input", (event) => {
+        if(event.target.value != filter)
         createBars(event.target.value)
     })
     // Alle Objekte löschen
