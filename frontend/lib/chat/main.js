@@ -138,7 +138,8 @@ function onMessageReceived(payload) {
     msgContentElement.appendChild(msgElement);
 
     messageArea.appendChild(messageElement);
-    messageArea.scrollTop = messageArea.scrollHeight;
+    var scrolli = document.getElementsByClassName("unterscrolli")[0];
+    scrolli.scrollTop = element.scrollHeight;
 }
 
 
