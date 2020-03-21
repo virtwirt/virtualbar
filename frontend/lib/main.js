@@ -38,25 +38,37 @@ function createBars(){
         guests:     10
    },
    {
-       name:       "Bar1",
+       name:       "Bar2",
        id:         "adhwndwa",
-       maxGuests:  20,
-       guests:     10
+       maxGuests:  30,
+       guests:     8
    }]
 
     for(var i = 0; i < bars.length; i++) {
-        var obj = document.createElement("li")
-        obj.setAttribute("id","l" + i)
+        var obj = document.createElement("tr")
+        obj.setAttribute("id", "item" + i)
         obj.setAttribute("onclick", "window.location.href = 'bar.html'")
-        obj.setAttribute("class", "text")
 
-        var pTemp = document.createElement("p")
-        var text = document.createTextNode(bars[i].name + " " + bars[i].guests + "/" + bars[i].maxGuests)
+        for(var j = 0; j < 3; j++) {
+        var td = document.createElement("td")
 
-        pTemp.appendChild(text)
-        obj.appendChild(pTemp)
+        var text
+        switch(j) {
+            case 0:
+            text = bars[i].name
+            break
+            case 1:
+            text = bars[i].guests + "/" + bars[i].maxGuests
+            break
+            case 2:
+            text = ""
+            break
+        }
+        td.appendChild(document.createTextNode(text))
 
-        document.getElementById("list").appendChild(obj)
+        obj.appendChild(td)
+        }
+        document.getElementById("table").appendChild(obj)
     }
 }
 
