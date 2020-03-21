@@ -116,5 +116,4 @@ function getAvatarColor(messageSender) {
     return colors[index];
 }
 
-userNameButton.addEventListener('click', connect, true)
 messageButton.addEventListener('click', sendMessage, true)
