@@ -1,4 +1,4 @@
-function create(){
+function create(barid){
     // Vom Backend holen (Raumanzahl)
     var rooms = 5
 
@@ -13,7 +13,7 @@ function create(){
         var table = document.createElement("img")
         table.setAttribute("class", "ui image")
         table.setAttribute("src", "table.jpg")
-        table.setAttribute("onclick", "$('.ui.modal').modal('show');")
+        table.setAttribute("onclick", "window.location.href = 'tisch.html?tid=" + i + "&bid=" + barid + "'")
         document.getElementById('c${i}').appendChild(table)
 
         // Sitzplätze
