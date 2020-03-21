@@ -28,7 +28,7 @@ function createRooms(){
     }
 }
 
-function createBars(){
+function createBars(filter){
     // Vom Server holen
     var bars =
     [{
@@ -44,31 +44,41 @@ function createBars(){
        guests:     8
    }]
 
+    document.getElementById("searchbar").addEventListener("input", (event) => {
+        if(event.target.value != filter)
+        createBars(event.target.value)
+    })
+    // Alle Objekte löschen
+    document.getElementById("table").innerHTML = ""
+
+    // Objekte die zum Filter passen einfügen
     for(var i = 0; i < bars.length; i++) {
-        var obj = document.createElement("tr")
-        obj.setAttribute("id", "item" + i)
-        obj.setAttribute("onclick", "window.location.href = 'bar.html'")
+        if(bars[i].name.startsWith(filter)){
+            var obj = document.createElement("tr")
+            obj.setAttribute("id", "item" + i)
+            obj.setAttribute("onclick", "window.location.href = 'bar.html'")
 
-        for(var j = 0; j < 3; j++) {
-        var td = document.createElement("td")
+            for(var j = 0; j < 3; j++) {
+                var td = document.createElement("td")
 
-        var text
-        switch(j) {
-            case 0:
-            text = bars[i].name
-            break
-            case 1:
-            text = bars[i].guests + "/" + bars[i].maxGuests
-            break
-            case 2:
-            text = ""
-            break
+                var text
+                switch(j) {
+                    case 0:
+                    text = bars[i].name
+                    break
+                    case 1:
+                    text = bars[i].guests + "/" + bars[i].maxGuests
+                    break
+                    case 2:
+                    text = ""
+                    break
+                }
+                td.appendChild(document.createTextNode(text))
+
+                obj.appendChild(td)
+            }
+            document.getElementById("table").appendChild(obj)
         }
-        td.appendChild(document.createTextNode(text))
-
-        obj.appendChild(td)
-        }
-        document.getElementById("table").appendChild(obj)
     }
 }
 
