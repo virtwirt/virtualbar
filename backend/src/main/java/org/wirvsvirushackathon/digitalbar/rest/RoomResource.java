@@ -26,4 +26,9 @@ public class RoomResource {
     public List<Room> getAllRooms() {
         return roomService.getAllRooms();
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Room> getRoom(@PathVariable long id) {
+        return ResponseEntity.ok(roomService.getRoom(id));
+    }
 }
