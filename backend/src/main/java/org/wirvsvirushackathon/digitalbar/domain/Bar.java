@@ -15,6 +15,8 @@ public class Bar {
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Room> rooms;
 
+    private int maxGuests;
+
     public Bar() {
 
     }
@@ -41,5 +43,13 @@ public class Bar {
 
     public void setRooms(Set<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public int getMaxGuests() {
+        return maxGuests;
+    }
+
+    public void setMaxGuests(int maxGuests) {
+        this.maxGuests = maxGuests;
     }
 }
