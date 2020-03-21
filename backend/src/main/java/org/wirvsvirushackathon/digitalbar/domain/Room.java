@@ -13,6 +13,8 @@ public class Room {
 
     private String name;
 
+    private int maxSeats;
+
     public Room() {
     }
 
@@ -30,5 +32,13 @@ public class Room {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getMaxSeats() {
+        return maxSeats;
+    }
+
+    public void setMaxSeats(int maxSeats) {
+        this.maxSeats = maxSeats;
     }
 }
