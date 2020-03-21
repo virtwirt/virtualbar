@@ -22,7 +22,11 @@ function createBars(filter, tags){
     })
 
     document.getElementById("tags").addEventListener("change", (event) => {
+            if(event.target.value != "")
             var newTags = event.target.value.split(",")
+            else
+            var newTags = []
+
             if(newTags != tags)
             createBars(filter, newTags)
     })
@@ -31,15 +35,16 @@ function createBars(filter, tags){
     document.getElementById("table").innerHTML = ""
 
     // Objekte die zum Filter passen einfügen
+    if(tags != undefined) {
     var filteredBars = bars.filter((o) => {
-        for(var i = 0; i < tags.length; i++) {
-            if(!o.tags.includes(tags[i])) {
-                return
+            for(var i = 0; i < tags.length; i++) {
+                if(!o.tags.includes(tags[i])) {
+                    return
+                }
             }
-        }
-        return o
-    })
-    console.log(filteredBars)
+            return o
+        })
+    }
     for(var i = 0; i < filteredBars.length; i++) {
         if(filteredBars[i].name.startsWith(filter)){
             var obj = document.createElement("tr")
