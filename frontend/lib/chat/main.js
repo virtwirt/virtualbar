@@ -74,14 +74,37 @@ function sendMessage(event) {
 function onMessageReceived(payload) {
     var message = JSON.parse(payload.body);
 
-    var messageElement = document.createElement('li');
+    var messageElement = document.createElement('div');
+        messageElement.classList.add('item');
+
+    var userIconElement = document.createElement('img');
+        userIconElement.classList.add('ui avatar image');
+        userIconElement.setAttribut('src', 'user.jpg')
+    var msgContentElement = document.createElement('div');
+        msgContentElement.classList.add('content');
+
+    messageElement.appendChild(userIconElement);
+    messageElement.appendChild(msgContentElement);
 
     if(message.type === 'JOIN') {
         messageElement.classList.add('event-message');
         message.content = message.sender + ' joined!';
+
+        var userNameElement = document.createElement('a');
+            userNameElement.classList.add('header');
+            userNameElement.innerHTML = message.sender;
+        var msgElement = document.createElement('div');
+            msgElement.classList.add('description');
+            msgElement.innerHTML = 'ist jejöint';
     } else if (message.type === 'LEAVE') {
         messageElement.classList.add('event-message');
         message.content = message.sender + ' left!';
+        var userNameElement = document.createElement('a');
+            userNameElement.classList.add('header');
+            userNameElement.innerHTML = message.sender;
+        var msgElement = document.createElement('div');
+            msgElement.classList.add('description');
+            msgElement.innerHTML = 'ist wech!';
     } else {
         messageElement.classList.add('chat-message');
 
@@ -90,19 +113,27 @@ function onMessageReceived(payload) {
         avatarElement.appendChild(avatarText);
         avatarElement.style['background-color'] = getAvatarColor(message.sender);
 
+        var userNameElement = document.createElement('a');
+            userNameElement.classList.add('header');
+            userNameElement.innerHTML = message.sender;
+        var msgElement = document.createElement('div');
+            msgElement.classList.add('description');
+            msgElement.innerHTML = message.content;
+
         messageElement.appendChild(avatarElement);
 
-        var usernameElement = document.createElement('span');
-        var usernameText = document.createTextNode(message.sender);
-        usernameElement.appendChild(usernameText);
-        messageElement.appendChild(usernameElement);
+       // var usernameElement = document.createElement('span');
+        //var usernameText = document.createTextNode(message.sender);
+        //usernameElement.appendChild(usernameText);
+
     }
 
     var textElement = document.createElement('p');
     var messageText = document.createTextNode(message.content);
     textElement.appendChild(messageText);
 
-    messageElement.appendChild(textElement);
+    msgContentElement.appendChild(userNameElement);
+    msgContentElement.appendChild(msgElement);
 
     messageArea.appendChild(messageElement);
     messageArea.scrollTop = messageArea.scrollHeight;
