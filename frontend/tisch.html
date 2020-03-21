@@ -10,55 +10,51 @@
 </head>
 <body>
 <br>
-<div>
-    <div class="fourteen wide column">
-        <h2 class="ui dividing centered header">
-            Willkommen in der ProtoBar
+<div class="ui grid">
+    <div class="two wide column">
+        <h2 class="ui header">
+            <i class="warehouse icon"></i>
+            <div class="content">
+                Tisch
+            </div>
         </h2>
     </div>
-    <div class="two column centered row">
-        <div class="two wide column" onclick="window.location.href= 'bar.html'">
-            <h2 class="ui header">
-                <i class="arrow left icon"></i>
-                <div class="content">
-                    Zurück
-                </div>
-            </h2>
-            <br>
-            <audio loop src="livestreamloop.mp3" controls="" controlslist="nodownload" preload="none" style="display: block;">Jukebox</audio>
+</div>
+<br>
+<audio loop src="livestreamloop.mp3" controls="" controlslist="nodownload" preload="none" style="display: block;">Jukebox</audio>
 
-            <div id="username-page">
-                <div class="username-page-container">
-                    <h1 class="title">Type your username</h1>
-                    <form id="usernameForm" name="usernameForm">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <button type="button" class="accent username-submit" id="username-button">Start Chatting</button>
-                        </div>
-                    </form>
-                </div>
+<div id="username-page">
+    <div class="username-page-container">
+        <h1 class="title">Type your username</h1>
+        <form id="usernameForm" name="usernameForm">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
             </div>
-            <div id="chat-page" class="hidden">
-                <div class="chat-container">
-                    <div class="connecting">
-                        Verbindung wird hergestellt...
-                    </div>
-                    <ul id="messageArea">
+            <div class="form-group">
+                <button type="button" class="accent username-submit" id="username-button">Start Chatting</button>
+            </div>
+        </form>
+    </div>
+</div>
 
-                    </ul>
-                    <form id="messageForm" name="messageForm">
-                        <div class="form-group">
-                            <div class="input-group clearfix">
-                                <input type="text" id="message" placeholder="Nachricht hier schreiben..." autocomplete="off" class="form-control"/>
-                                <button type="button" class="primary" id="send-button">Senden</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div class="ui list" id="messageArea">
+
+</div>
+
+<div id="chat-page" class="hidden">
+    <div class="chat-container">
+        <div class="connecting">
+            Verbindung wird hergestellt...
         </div>
+
+        <form id="messageForm" name="messageForm">
+            <div class="form-group">
+                <div class="input-group clearfix">
+                    <input type="text" id="message" placeholder="Nachricht hier schreiben..." autocomplete="off" class="form-control"/>
+                    <button type="button" class="primary" id="send-button">Senden</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 
