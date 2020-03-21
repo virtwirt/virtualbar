@@ -122,7 +122,7 @@ function onMessageReceived(payload) {
             msgElement.classList.add('description');
             msgElement.innerHTML = message.content;
 
-        messageElement.appendChild(avatarElement);
+        //messageElement.appendChild(avatarElement);
 
        // var usernameElement = document.createElement('span');
         //var usernameText = document.createTextNode(message.sender);

@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" charset="utf-8">
       <title>Spring Boot WebSocket Chat Application</title>
       <link rel="stylesheet" href="/css/main.css" />
+      <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+      <script src="semantic.min.js"></script>
+      <link rel="stylesheet" href="semantic.min.css">
+      <script src="lib/chat.js"></script>
+      <style>
+		.hidden{
+			display: none!important;
+		}
+	  </style>
   </head>
   <body>
     <noscript>
       <h2>Sorry! Your browser doesn't support Javascript</h2>
     </noscript>
 
-    <div id="username-page">
+    <div id="username-page" class="hidden">
         <div class="username-page-container">
             <h1 class="title">Type your username</h1>
             <form id="usernameForm" name="usernameForm">
                 <div class="form-group">
-                    <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
+                    <input type="text"  placeholder="Username" autocomplete="off" class="form-control" />
+                    <div id="name">
+                        <script>Math.random().toString(36).substr(2, 5)</script>
+                    </div>
                 </div>
                 <div class="form-group">
                     <button type="button" class="accent username-submit" id="username-button">Start Chatting</button>
@@ -23,6 +35,24 @@
             </form>
         </div>
     </div>
+    <div class="ui internally celled grid">
+        <div class="row">
+            <div class="two wide column"></div>
+            <div class="twelve wide column">
+                <div class="ui segment">
+                    <div class="ui list" id="messageArea">
+                        <div class="item">
+                            <img class="ui avatar image" src="user.jpg">
+                            <div class="content">
+                                <div class="description"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="two wide column"></div>
+        </div>
+
 
     <div id="chat-page" class="hidden">
         <div class="chat-container">
@@ -32,9 +62,7 @@
             <div class="connecting">
                 Connecting...
             </div>
-            <ul id="messageArea">
 
-            </ul>
             <form id="messageForm" name="messageForm">
                 <div class="form-group">
                     <div class="input-group clearfix">
