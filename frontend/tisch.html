@@ -5,7 +5,6 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="semantic.min.js"></script>
     <link rel="stylesheet" href="semantic.min.css">
-    <script src="lib/main.js"></script>
     <title>Tisch</title>
     <style>
 		.hidden{
@@ -33,7 +32,8 @@
         <h1 class="title">Type your username</h1>
         <form id="usernameForm" name="usernameForm">
             <div class="form-group">
-                <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
+                <input type="text"  placeholder="Username" autocomplete="off" class="form-control" />
+                <div id="name"></div>
             </div>
             <div class="form-group">
                 <button type="button" class="accent username-submit" id="username-button">Start Chatting</button>
@@ -47,14 +47,7 @@
         <div class="two wide column"></div>
         <div class="twelve wide column">
             <div class="ui segment">
-                <div class="ui list" id="messageArea">
-                    <div class="item">
-                        <img class="ui avatar image" src="user.jpg">
-                        <div class="content">
-                            <div class="description"></div>
-                        </div>
-                    </div>
-                </div>
+                <div class="ui list" id="messageArea"></div>
             </div>
         </div>
         <div class="two wide column"></div>
@@ -80,5 +73,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 <script src="lib/chat/main.js"></script>
+<script>
+
+
+
+$( document ).ready(function() {
+document.querySelector('#name').value = Math.random().toString(36).substr(2, 5);
+setTimeout(() =>
+{
+$('#username-button').click();
+}, 1000);
+
+});
+</script>
 </body>
 </html>
