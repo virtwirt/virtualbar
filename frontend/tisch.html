@@ -146,6 +146,12 @@ $('#username-button').click();
 }, 1000);
 
 });
+
+$('#message').on('keydown', function(e) {
+    if (e.which == 13) {
+        console.log('hallo')
+    }
+});
 </script>
 </body>
 </html>
