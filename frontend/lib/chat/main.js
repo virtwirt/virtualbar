@@ -10,6 +10,8 @@ var connectingElement = document.querySelector('.connecting');
 var userNameButton = document.querySelector('#username-button');
 var messageButton = document.querySelector('#send-button');
 
+var backendBase = "https://digitalbar.newhouse.de/backend";
+
 var stompClient = null;
 var username = null;
 
@@ -25,7 +27,7 @@ function connect(event) {
         usernamePage.classList.add('hidden');
         chatPage.classList.remove('hidden');
 
-        var socket = new SockJS('http://63.32.57.139:8080/chat');
+        var socket = new SockJS(backendBase + '/chat');
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, onConnected, onError);

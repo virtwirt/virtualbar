@@ -1,5 +1,44 @@
+var backendBase = "https://digitalbar.newhouse.de/backend";
+
 function createRooms(){
-    // Vom Backend holen (Raumanzahl)
+    // get rooms
+    var xhttp = new XMLHttpRequest();
+    xhttp.open('GET', backendBase + "/rooms", true);
+
+    xhttp.onload = function() {
+        var rooms = JSON.parse(this.responseText);
+        for(var i = 0; i < rooms.length; i++) {
+            var room = rooms[i];
+
+            // Container hinzufügen
+            var obj = document.createElement("div")
+            obj.setAttribute("id", 'c' + i)
+            obj.setAttribute("class", "column")
+            document.getElementById('row').appendChild(obj)
+
+            // Tisch hinzufügen
+            var table = document.createElement("img")
+            table.setAttribute("class", "ui image")
+            table.setAttribute("src", "table.jpg")
+            table.setAttribute("onclick", "window.location.href = 'tisch.html'")
+            createTable('c' + i)
+
+            // Sitzplätze
+            // vom Backend Sitzplätze für entsprechenden Raum holen
+            //var count = room.maxSeats;
+            var count = 4
+            for(var j = 0; j < count; j++) {
+                var seat = document.createElement("img")
+                seat.setAttribute("class", "ui avatar image")
+                seat.setAttribute("src", "user.jpg")
+                document.getElementById('c' + i).appendChild(seat)
+            }
+        }
+
+    }
+
+    xhttp.send();
+/*
     var rooms = 5
 
     for(var i = 0; i < rooms; i++) {
@@ -25,7 +64,7 @@ function createRooms(){
             seat.setAttribute("src", "user.jpg")
             document.getElementById('c' + i).appendChild(seat)
         }
-    }
+    }*/
 }
 
 function createBars(filter){
