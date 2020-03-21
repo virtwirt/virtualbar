@@ -12,10 +12,18 @@
 		}
 
 		.scrolli{
+		    max-height: 75%;
+            min-height: 75%;
+            overflow-y: auto;
+		}
+		.unterscrolli{
 		    max-height: 50%;
             min-height: 50%;
             overflow-y: auto;
-		}
+        }
+        body{
+            overflow-y: hidden;
+        }
 	  </style>
 </head>
 <body>
@@ -54,20 +62,21 @@
             <div class="ui segment">
                 <div class="ui list" id="messageArea"></div>
             </div>
+            <div class="ui attached segment unterscrolli">
+                <form id="messageForm" name="messageForm">
+                    <div class="form-group">
+                        <div class="input-group clearfix">
+                            <div class="ui fluid action input">
+                                <input type="text" id="message" placeholder="Nachricht hier schreiben..." autocomplete="off" class="form-control"/>
+                                <div type="button" id="send-button"class="ui button primary">Chatten</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <div class="ui attached segment">
-        <form id="messageForm" name="messageForm">
-            <div class="form-group">
-                <div class="input-group clearfix">
-                    <div class="ui fluid action input">
-                        <input type="text" id="message" placeholder="Nachricht hier schreiben..." autocomplete="off" class="form-control"/>
-                        <div type="button" id="send-button"class="ui button primary">Search</div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+
 </div>
 <div id="chat-page" class="hidden">
     <div class="chat-container">
