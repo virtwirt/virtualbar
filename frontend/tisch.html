@@ -10,6 +10,11 @@
 		.hidden{
 			display: none!important;
 		}
+
+		.scrolli{
+		    max-height: 50%;
+            overflow: scroll;
+		}
 	  </style>
 </head>
 <body>
@@ -42,15 +47,13 @@
     </div>
 </div>
 
-<div class="ui internally celled grid">
+<div class="ui centered grid">
     <div class="row" id="test">
-        <div class="two wide column"></div>
-        <div class="twelve wide column">
+        <div class="twelve wide column scrolli">
             <div class="ui segment">
                 <div class="ui list" id="messageArea"></div>
             </div>
         </div>
-        <div class="two wide column"></div>
     </div>
 </div>
 <div id="chat-page" class="hidden">
