@@ -9,25 +9,24 @@
     <script src="lib/main.js"></script>
     <title>Barliste</title>
 </head>
+<div class="fourteen wide column">
+    <h2 class="ui dividing centered header">
+        Willkommen in der ProtoBar
+    </h2>
+</div>
 <body>
-    <div class="ui grid">
-        <div class="two wide column">
-            <h2 class="ui header">
-                <i class="warehouse icon"></i>
-                <div class="content">
-                    Barübersicht
-                </div>
-            </h2>
-        </div>
+    <div class="ui icon input">
+        <input type="text" placeholder="Suchen..." id="searchbar">
+        <i class="search icon"></i>
     </div>
-    <table class="ui green table" id="table" style="width: 60%">
+    <table class="ui green table" style="width: 60%">
         <thead>
         <tr><th>Bar-Name</th>
             <th>Besucher</th>
             <th>Tags</th>
-        </tr></thead><tbody>
+        </tr></thead><tbody id="table">
     </tbody>
     </table>
-    <script>createBars()</script>
+    <script>createBars("")</script>
 </body>
 </html>
