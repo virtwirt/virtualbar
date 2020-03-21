@@ -76,6 +76,15 @@
     </div>
   </div>
 </div>
-<script>$('.special.cards .image').dimmer({on: 'hover'});</script>
+<script>
+$( document ).ready(function() {
+	setTimeout(() =>
+	{
+		$('.image').dimmer({on: 'hover'});
+			console.log( $('.image') );
+	}, 1000);
+
+});
+</script>
 	</body>
 </html>
