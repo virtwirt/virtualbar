@@ -5,7 +5,7 @@
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 		<script src="semantic.min.js"></script>
 		<link rel="stylesheet" href="semantic.min.css">
-		<script src="lib/main.js"></script>
+		<script src="lib/bar.js"></script>
 	</head>
 	<body>
 	<div class="ui centered grid">
@@ -76,6 +76,14 @@
     </div>
   </div>
 </div>
-<script>$('.special.cards .image').dimmer({on: 'hover'});</script>
+<script>
+$( document ).ready(function() {
+	setTimeout(() =>
+	{
+		$('.image').dimmer({on: 'hover'});
+	}, 1000);
+
+});
+</script>
 	</body>
 </html>
