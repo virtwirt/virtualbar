@@ -127,6 +127,6 @@ function addBar() {
     }
 
    var oReq = new XMLHttpRequest();
-   oReq.open("POST", backendBase + "/bars", bar);
-   oReq.send();
+   oReq.open("POST", backendBase + "/bars");
+   oReq.send(bar);
 }
