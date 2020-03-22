@@ -2,8 +2,8 @@ var backendBase = "https://digitalbar.newhouse.de/backend";
 
 function createBars(filter, tags){
    function reqListener () {
-        console.log(oReq)
-         var bars = JSON.parse(oReq.responseText)
+        console.log(this)
+         var bars = JSON.parse(this.responseText)
         document.getElementById("searchbar").addEventListener("input", (event) => {
             if(event.target.value != filter)
             createBars(event.target.value, tags)
@@ -66,8 +66,9 @@ function createBars(filter, tags){
             }
         }
    }
+
     var oReq = new XMLHttpRequest();
-    oReq.addEventListener("load", reqListener());
-    oReq.open("GET", backendBase + "/bars");
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", backendBase + "/rooms");
     oReq.send();
 }
