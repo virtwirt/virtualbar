@@ -13,3 +13,8 @@ function displayName(){
    oReq.open("GET", backendBase + "/rooms/" + id);
    oReq.send();
 }
+
+function openInNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
