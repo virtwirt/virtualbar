@@ -13,7 +13,7 @@ var messageButton = document.querySelector('#send-button');
 var urlParams = new URLSearchParams(window.location.search);
 var roomId = urlParams.get('roomId');
 
-var backendBase = "http://virtwirt.de/backend";
+var backendBase = "https://virtwirt.de/backend";
 
 var stompClient = null;
 var username = null;
