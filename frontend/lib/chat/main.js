@@ -100,7 +100,7 @@ function onMessageReceived(payload) {
             userNameElement.innerHTML = message.sender;
         var msgElement = document.createElement('div');
             msgElement.classList.add('description');
-            msgElement.innerHTML = 'ist jejöint';
+            msgElement.innerHTML = 'ist dem Chat beigetreten!';
     } else if (message.type === 'LEAVE') {
         messageElement.classList.add('event-message');
         message.content = message.sender + ' left!';
@@ -109,7 +109,7 @@ function onMessageReceived(payload) {
             userNameElement.innerHTML = message.sender;
         var msgElement = document.createElement('div');
             msgElement.classList.add('description');
-            msgElement.innerHTML = 'ist wech!';
+            msgElement.innerHTML = 'ist gegangen!';
     } else {
         messageElement.classList.add('chat-message');
 
