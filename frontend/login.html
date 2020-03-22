@@ -48,40 +48,6 @@
       max-width: 450px;
     }
   </style>
-    <script>
-  $(document)
-    .ready(function() {
-      $('.ui.form')
-        .form({
-          fields: {
-            email: {
-              identifier  : 'email',
-              rules: [
-                {
-                  type   : 'empty',
-                  prompt : 'Please enter your username'
-                }
-              ]
-            },
-            password: {
-              identifier  : 'password',
-              rules: [
-                {
-                  type   : 'empty',
-                  prompt : 'Please enter your password'
-                },
-                {
-                  type   : 'length[6]',
-                  prompt : 'Your password must be at least 6 characters'
-                }
-              ]
-            }
-          }
-        })
-      ;
-    })
-  ;
-  </script>
 </head>
 <body>
 
@@ -98,16 +64,16 @@
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input type="text" name="email" placeholder="Benutzername">
+                        <input type="text" id="user" placeholder="Benutzername">
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="lock icon"></i>
-                        <input type="password" name="password" placeholder="Password">
+                        <input type="password" id="password" placeholder="Password">
                     </div>
                 </div>
-                <div class="ui fluid large yellow submit button">Login</div>
+                <div class="ui fluid large yellow submit button" id="login">Login</div>
             </div>
 
             <div class="ui error message"></div>
