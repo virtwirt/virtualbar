@@ -4,6 +4,10 @@ function displayName(){
    function reqListener () {
         var room = JSON.parse(this.responseText)
         document.getElementById('table').innerHTML = 'Tisch "' + room.name + '"'
+        if(room.musicUrl !== undefined && room.musicUrl !== null) {
+          document.getElementById('audio-source').src = room.musicUrl;
+        }
+        document.getElementById('audio-player').volume = 0.35;
    }
 
    var urlParams = new URLSearchParams(window.location.search);
