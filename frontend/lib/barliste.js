@@ -126,9 +126,10 @@ function addBar() {
             }}
         }
     }
+    var final = json.stringify(bar)
 
    var oReq = new XMLHttpRequest();
    oReq.open("POST", backendBase + "/bars");
    oReq.setRequestHeader("Content-Type", "application/json");
-   oReq.send(bar);
+   oReq.send(final);
 }
