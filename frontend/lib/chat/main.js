@@ -104,7 +104,6 @@ function onMessageReceived(payload) {
         var userNameElement = document.createElement('a');
             userNameElement.classList.add('header');
             userNameElement.innerHTML = message.sender;
-            userNameElement.addEventListener('click', (event) => {console.log(message.sender)})
         var msgElement = document.createElement('div');
             msgElement.classList.add('description');
             msgElement.innerHTML = 'ist wech!';
