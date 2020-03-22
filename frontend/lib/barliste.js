@@ -18,8 +18,6 @@ function createBars(filter, tags){
        tags: ["Spiele","Videochat"]
    }]*/
 
-    function reqListener () {
-        var bars = JSON.parse(this.responseText);
         document.getElementById("searchbar").addEventListener("input", (event) => {
             if(event.target.value != filter)
             createBars(event.target.value, tags)
@@ -84,7 +82,7 @@ function createBars(filter, tags){
     }
 
     var oReq = new XMLHttpRequest();
-    oReq.addEventListener("load", reqListener);
+    oReq.addEventListener("load", function(){});
     oReq.open("GET", backendBase + "/bars");
     oReq.send();
 }
