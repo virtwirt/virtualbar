@@ -84,16 +84,16 @@ function createTable(room){
 	cntnt.appendChild(center)
 	center.appendChild(roomElem)
 	center.appendChild(bla)
-	createTags(center)
+	createTags(center, room.tags)
 	document.getElementById(room.name).appendChild(card)
 
 }
 
-function createTags(container){
+function createTags(container, tags){
 	var labelContainer = document.createElement("div")
   labelContainer.setAttribute("class", "ui red labels")
 
-	var labelse = ['Chat', 'Voice', 'Trinkspiele']
+	var labelse = tags
 
 	for(var i = 0; i < labelse.length; i++) {
 		var tag = document.createElement("a")
