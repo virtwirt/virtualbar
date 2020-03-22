@@ -18,6 +18,7 @@ function createBars(filter, tags){
        tags: ["Spiele","Videochat"]
    }]*/
    function reqListener () {
+        console.log(this.responseText)
          var bars = JSON.parse(this.responseText)
         document.getElementById("searchbar").addEventListener("input", (event) => {
             if(event.target.value != filter)
