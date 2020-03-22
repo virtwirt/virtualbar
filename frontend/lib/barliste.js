@@ -113,7 +113,7 @@ function addBar() {
                 id: Math.round(Math.random()* 1000),
                 name: "Hauptraum",
                 maxSeats: 15,
-                tags: document.getElementById('newTags').split(","),
+                tags: document.getElementById('newTags').value.split(","),
                 occupiedSeats: 0
             },
             {
