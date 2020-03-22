@@ -9,7 +9,6 @@ function navigateToBar(barId) {
 function createBars(filter, tags){
    function reqListener () {
         var bars = JSON.parse(this.responseText)
-        console.log(bars)
         document.getElementById("searchbar").addEventListener("input", (event) => {
             if(event.target.value != filter)
             createBars(event.target.value, tags)
@@ -30,9 +29,19 @@ function createBars(filter, tags){
 
         // Objekte die zum Filter passen einfügen
         if(tags != undefined) {
-        var filteredBars = bars.filter((o) => {
+            var filteredBars = bars.filter((o) => {
+                // Alle Tags einer Bar finden
+                var tagList = []
+                for(var i = 0; i < o.rooms.length; i++) {
+                    for(var j = 0; j < o.rooms[i].tags.length; j++) {
+                        if(!tagList.includes(o.rooms[i].tags[j])) {
+                            tagList[tagList.length] = o.rooms[i].tags[j]
+                        }
+                    }
+                }
+                // Filtern, ob Bar die nötigen Tags hat
                 for(var i = 0; i < tags.length; i++) {
-                    if(!o.tags.includes(tags[i])) {
+                    if(!tagList.includes(tags[i])) {
                         return
                     }
                 }
@@ -65,10 +74,10 @@ function createBars(filter, tags){
                         break
                         case 2:
                         text = ""
-                        var tagArray = []
                         var index = 0
+                        var tagArray = []
                         for(var l = 0; l < filteredBars[i].rooms.length; l++) {
-                            for(var k = 0; k < filteredBars[i].tags.length; k++) {
+                            for(var k = 0; k < filteredBars[i].rooms[l].tags.length; k++) {
                                 if(!tagArray.includes(filteredBars[i].rooms[l].tags[k])) {
                                     tagArray[index] = filteredBars[i].rooms[l].tags[k]
                                     index++;
