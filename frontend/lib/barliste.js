@@ -96,6 +96,7 @@ function createBars(filter, tags){
                 }
                 document.getElementById("table").appendChild(obj)
             }
+        }
    }
 
    var oReq = new XMLHttpRequest();
@@ -122,10 +123,10 @@ function addBar() {
                 maxSeats: 15,
                 tags: document.getElementById('newTags').value.split(","),
                 occupiedSeats: 0
-            }}
+            }
         }
     }
-    var final = json.stringify(bar)
+    var final = JSON.stringify(bar)
 
    var oReq = new XMLHttpRequest();
    oReq.open("POST", backendBase + "/bars");
