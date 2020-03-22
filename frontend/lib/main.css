@@ -1,0 +1,8 @@
+tr {
+    cursor: url('../cursor.png') 0 64, pointer;
+    transition-duration: 0.3s;
+}
+
+tr:hover {
+    background-color: #FFD700;
+}
