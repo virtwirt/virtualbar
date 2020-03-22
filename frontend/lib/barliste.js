@@ -1,9 +1,15 @@
 var backendBase = "https://digitalbar.newhouse.de/backend";
 
+function navigateToBar(barId) {
+  return function() {
+    window.location.href = 'bar.html?barId=' + barId;
+  }
+}
+
 function createBars(filter, tags){
    function reqListener () {
-        console.log(this)
-         var bars = JSON.parse(this.responseText)
+        var bars = JSON.parse(this.responseText)
+        console.log(bars)
         document.getElementById("searchbar").addEventListener("input", (event) => {
             if(event.target.value != filter)
             createBars(event.target.value, tags)
@@ -35,9 +41,16 @@ function createBars(filter, tags){
         }
         for(var i = 0; i < filteredBars.length; i++) {
             if(filteredBars[i].name.startsWith(filter)){
+
+                // guests hack
+                filteredBars[i].guests = 0;
+                for(var l = 0; l < filteredBars[i].rooms.length; l++) {
+                  filteredBars[i].guests += filteredBars[i].rooms[l].occupiedSeats;
+                }
+
                 var obj = document.createElement("tr")
                 obj.setAttribute("id", "item" + i)
-                obj.setAttribute("onclick", "window.location.href = 'bar.html'")
+                obj.addEventListener("click", navigateToBar(filteredBars[i].id))
 
                 for(var j = 0; j < 3; j++) {
                     var td = document.createElement("td")
@@ -52,8 +65,8 @@ function createBars(filter, tags){
                         break
                         case 2:
                         text = ""
-                        for(var j = 0; j < filteredBars[i].tags.length; j++) {
-                            text += filteredBars[i].tags[j] + ", "
+                        for(var k = 0; k < filteredBars[i].tags.length; k++) {
+                            text += filteredBars[i].tags[k] + ", "
                         }
                         text = text.substring(0, text.length - 2)
                         break
@@ -67,8 +80,8 @@ function createBars(filter, tags){
         }
    }
 
-    var oReq = new XMLHttpRequest();
-    oReq.addEventListener("load", reqListener);
-    oReq.open("GET", "https://digitalbar.newhouse.de/backend/bars");
-    oReq.send();
+   var oReq = new XMLHttpRequest();
+   oReq.addEventListener("load", reqListener);
+   oReq.open("GET", backendBase + "/bars");
+   oReq.send();
 }

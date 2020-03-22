@@ -11,7 +11,12 @@ function navigateToRoom(roomId) {
 function createRooms(){
     // get rooms
     function reqListener () {
-      var rooms = JSON.parse(this.responseText).rooms;
+      var bar = JSON.parse(this.responseText);
+
+      var nameElem = document.getElementById("bar-name");
+      nameElem.innerHTML = 'Willkommen in der Bar "' + bar.name + '"';
+
+      var rooms = bar.rooms;
       for(var i = 0; i < rooms.length; i++) {
           var room = rooms[i];
 
