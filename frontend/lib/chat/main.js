@@ -10,6 +10,9 @@ var connectingElement = document.querySelector('.connecting');
 var userNameButton = document.querySelector('#username-button');
 var messageButton = document.querySelector('#send-button');
 
+var urlParams = new URLSearchParams(window.location.search);
+var roomId = urlParams.get('roomId');
+
 var backendBase = "https://digitalbar.newhouse.de/backend";
 
 var stompClient = null;
@@ -38,10 +41,10 @@ function connect(event) {
 
 function onConnected() {
     // Subscribe to the Public Topic
-    stompClient.subscribe('/room/1', onMessageReceived);
+    stompClient.subscribe('/room/' + roomId, onMessageReceived);
 
     // Tell your username to the server
-    stompClient.send("/app/chat/1.addUser",
+    stompClient.send("/app/chat/" + roomId + ".addUser",
         {},
         JSON.stringify({sender: username, type: 'JOIN'})
     )
@@ -64,7 +67,7 @@ function sendMessage(event) {
             content: messageInput.value,
             type: 'CHAT'
         };
-        stompClient.send("/app/chat/1.sendMessage", {}, JSON.stringify(chatMessage));
+        stompClient.send("/app/chat/" + roomId + ".sendMessage", {}, JSON.stringify(chatMessage));
         messageInput.value = '';
     }
     event.preventDefault();
