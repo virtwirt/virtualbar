@@ -82,7 +82,6 @@ function onMessageReceived(payload) {
         userIconElement.classList.add('avatar');
         userIconElement.classList.add('image');
         userIconElement.setAttribute('src', 'user.jpg')
-        userIconElement.setAttribute('onclick', 'addFriend(' + message.sender + ')')
     var msgContentElement = document.createElement('div');
         msgContentElement.classList.add('content');
 
@@ -96,6 +95,7 @@ function onMessageReceived(payload) {
         var userNameElement = document.createElement('a');
             userNameElement.classList.add('header');
             userNameElement.innerHTML = message.sender;
+            userNameElement.setAttribute('onclick', 'addFriend(' + message.sender + ')')
         var msgElement = document.createElement('div');
             msgElement.classList.add('description');
             msgElement.innerHTML = 'ist jejöint';
