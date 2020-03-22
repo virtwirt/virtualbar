@@ -95,6 +95,7 @@ function onMessageReceived(payload) {
         var userNameElement = document.createElement('a');
             userNameElement.classList.add('header');
             userNameElement.innerHTML = message.sender;
+            userNameElement.setAttribute('onclick', 'addFriend(' + message.sender + ')')
         var msgElement = document.createElement('div');
             msgElement.classList.add('description');
             msgElement.innerHTML = 'ist jejöint';
