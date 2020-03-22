@@ -69,6 +69,6 @@ function createBars(filter, tags){
 
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", reqListener);
-    oReq.open("GET", backendBase + "/rooms");
+    oReq.open("GET", backendBase + "/bars");
     oReq.send();
 }
