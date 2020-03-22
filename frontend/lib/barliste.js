@@ -128,5 +128,6 @@ function addBar() {
 
    var oReq = new XMLHttpRequest();
    oReq.open("POST", backendBase + "/bars");
+   oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
    oReq.send(bar);
 }
