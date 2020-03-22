@@ -38,8 +38,6 @@ function createRooms(){
     oReq.open("GET", backendBase + "/rooms");
     oReq.send();
 
-
-
 }
 
 function createTable(containerEle){
