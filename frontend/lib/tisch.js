@@ -3,7 +3,7 @@ var backendBase = "https://virtwirt.de/backend";
 function displayName(){
    function reqListener () {
         var room = JSON.parse(this.responseText)
-        document.getElementById('table').innerHTML("Tisch " + room.name)
+        document.getElementById('table').innerHTML = "Tisch " + room.name
    }
 
    var urlParams = new URLSearchParams(window.location.search);
