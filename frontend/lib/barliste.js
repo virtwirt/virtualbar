@@ -10,7 +10,7 @@ function createBars(filter, tags){
    function reqListener () {
         var bars = JSON.parse(this.responseText)
         document.getElementById("searchbar").addEventListener("input", (event) => {
-            if(event.target.value != filter)
+        if(event.target.value != filter)
             createBars(event.target.value, tags)
         })
 
@@ -96,7 +96,6 @@ function createBars(filter, tags){
                 }
                 document.getElementById("table").appendChild(obj)
             }
-        }
    }
 
    var oReq = new XMLHttpRequest();
