@@ -76,7 +76,7 @@ function createTable(room){
 
 	var bla = document.createElement("div")
   bla.setAttribute("class", "ui inverted button")
-	bla.innerHTML = "An der Unterhaltung teilnehmen"
+	bla.innerHTML = 'Zum Tisch "' + room.name + '"'
 	bla.addEventListener("click", navigateToRoom(room.id))
 	var table = document.createElement("img")
 	table.setAttribute("class", "ui medium image")
