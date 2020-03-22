@@ -107,24 +107,21 @@ function createBars(filter, tags){
 
 function addBar() {
     var bar = {
-        id: Math.round(Math.random()* 1000),
         name: document.getElementById('newSearchbar').value,
-        rooms: {
-            0:{
-                id: Math.round(Math.random()* 1000),
+        rooms: [
+            {
                 name: "Hauptraum",
                 maxSeats: 15,
                 tags: document.getElementById('newTags').value.split(","),
                 occupiedSeats: 0
             },
-            1:{
-                id: Math.round(Math.random()* 1000),
+            {
                 name: "Nebenraum",
                 maxSeats: 15,
                 tags: document.getElementById('newTags').value.split(","),
                 occupiedSeats: 0
             }
-        }
+        ]
     }
     var final = JSON.stringify(bar)
 
