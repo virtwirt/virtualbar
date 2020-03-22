@@ -69,8 +69,10 @@ function createBars(filter, tags){
                         var index = 0
                         for(var l = 0; l < filteredBars[i].rooms.length; l++) {
                             for(var k = 0; k < filteredBars[i].tags.length; k++) {
-                                if(!tagArray.includes(filteredBars[i].rooms[l].tags[k]))
-                                tagArray[index] = filteredBars[i].rooms[l].tags[k]
+                                if(!tagArray.includes(filteredBars[i].rooms[l].tags[k])) {
+                                    tagArray[index] = filteredBars[i].rooms[l].tags[k]
+                                    index++;
+                                }
                             }
                         }
                         for(var m = 0; m < tagArray.length; m++) {
