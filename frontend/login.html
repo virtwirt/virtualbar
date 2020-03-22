@@ -33,6 +33,7 @@
     <script src="semantic.min.js"></script>
     <link rel="stylesheet" href="semantic.min.css">
     <link rel="icon" href="favicon.ico">
+    <script src="lib/login.js"></script>
 
     <style type="text/css">
     body {
@@ -73,11 +74,10 @@
                         <input type="password" id="password" placeholder="Password">
                     </div>
                 </div>
-                <div class="ui fluid large yellow submit button" id="login">Login</div>
+                <div class="ui fluid large yellow submit button" id="login" onclick="process()">Login</div>
             </div>
-
-            <div class="ui error message"></div>
-
+            <script>setup()</script>
+            <div class="ui message" style="visibility:hidden" id="error">Der Benutzername oder das Passwort sind falsch!</div>
         </form>
 
         <div class="ui message">
