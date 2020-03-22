@@ -69,6 +69,6 @@ function createBars(filter, tags){
 
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", reqListener);
-    oReq.open("GET", backendBase + "/bars");
+    oReq.open("GET", "https://digitalbar.newhouse.de/backend/bars");
     oReq.send();
 }
