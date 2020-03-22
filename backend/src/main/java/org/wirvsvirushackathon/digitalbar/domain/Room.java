@@ -1,8 +1,7 @@
 package org.wirvsvirushackathon.digitalbar.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Room {
@@ -14,6 +13,9 @@ public class Room {
     private String name;
 
     private int maxSeats;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<String> tags;
 
     public Room() {
     }
@@ -40,5 +42,13 @@ public class Room {
 
     public void setMaxSeats(int maxSeats) {
         this.maxSeats = maxSeats;
+    }
+
+    public Set<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<String> tags) {
+        this.tags = tags;
     }
 }

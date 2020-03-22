@@ -17,6 +17,8 @@ public class Bar {
 
     private int maxGuests;
 
+    private int guests;
+
     public Bar() {
 
     }
@@ -51,5 +53,13 @@ public class Bar {
 
     public void setMaxGuests(int maxGuests) {
         this.maxGuests = maxGuests;
+    }
+
+    public int getGuests() {
+        return guests;
+    }
+
+    public void setGuests(int guests) {
+        this.guests = guests;
     }
 }
