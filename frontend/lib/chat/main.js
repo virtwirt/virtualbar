@@ -13,7 +13,7 @@ var messageButton = document.querySelector('#send-button');
 var urlParams = new URLSearchParams(window.location.search);
 var roomId = urlParams.get('roomId');
 
-var backendBase = "https://digitalbar.newhouse.de/backend";
+var backendBase = "http://virtwirt.de/backend";
 
 var stompClient = null;
 var username = null;
