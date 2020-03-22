@@ -17,7 +17,8 @@ function createBars(filter, tags){
        guests:     8,
        tags: ["Spiele","Videochat"]
    }]*/
-
+   function reqListener () {
+         var rooms = JSON.parse(this.responseText);
         document.getElementById("searchbar").addEventListener("input", (event) => {
             if(event.target.value != filter)
             createBars(event.target.value, tags)
@@ -79,6 +80,7 @@ function createBars(filter, tags){
                 document.getElementById("table").appendChild(obj)
             }
         }
+   }
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", function(){});
     oReq.open("GET", backendBase + "/bars");
