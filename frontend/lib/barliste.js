@@ -18,7 +18,7 @@ function createBars(filter, tags){
        tags: ["Spiele","Videochat"]
    }]*/
    function reqListener () {
-         var rooms = this.responseText
+         var bars = this.responseText
         document.getElementById("searchbar").addEventListener("input", (event) => {
             if(event.target.value != filter)
             createBars(event.target.value, tags)
