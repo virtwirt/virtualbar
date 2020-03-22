@@ -108,6 +108,8 @@ function createBars(filter, tags){
 function addBar() {
     var bar = {
         name: document.getElementById('newSearchbar').value,
+        maxGuests: 30,
+        occupiedSeats: 0,
         rooms: [
             {
                 name: "Hauptraum",
