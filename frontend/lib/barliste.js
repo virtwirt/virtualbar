@@ -79,8 +79,6 @@ function createBars(filter, tags){
                 document.getElementById("table").appendChild(obj)
             }
         }
-    }
-
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", function(){});
     oReq.open("GET", backendBase + "/bars");
