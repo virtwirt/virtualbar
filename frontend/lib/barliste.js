@@ -2,18 +2,32 @@ function createBars(filter, tags){
     // Vom Server holen
     var bars =
     [{
-        name:       "Bar1",
-        id:         "adhwndwa",
+        name:       "Wunder-Bar",
+        id:         "abcdefgh",
         maxGuests:  20,
         guests:     10,
-        tags: ["Spiele","Voicechat"]
+        tags: ["Wein","Videochat"]
    },
    {
-       name:       "Bar2",
-       id:         "adhwndwa",
+           name:       "Barnhof",
+           id:         "abcdefgh",
+           maxGuests:  20,
+           guests:     10,
+           tags: ["Spiele","Wein"]
+      },
+      {
+              name:       "Club-Mate",
+              id:         "abcdefgh",
+              maxGuests:  20,
+              guests:     10,
+              tags: ["Textchat","Voicechat"]
+         },
+   {
+       name:       "The Infamous Cock",
+       id:         "abcdefgh",
        maxGuests:  30,
        guests:     8,
-       tags: ["Spiele","Videochat"]
+       tags: ["Spiele","Bier"]
    }]
 
     document.getElementById("searchbar").addEventListener("input", (event) => {
