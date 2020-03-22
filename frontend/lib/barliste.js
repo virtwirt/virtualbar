@@ -1,4 +1,4 @@
-var backendBase = "https://digitalbar.newhouse.de/backend";
+var backendBase = "https://virtwirt.de/backend";
 
 function navigateToBar(barId) {
   return function() {
