@@ -48,7 +48,42 @@
             </tbody>
         </table>
         <script>createBars("", [])</script>
-        <script> $('.ui.dropdown').dropdown({ maxSelections: 5});</script>
+        <div style="width:100%"></div>
+        <div class="ui segment" style="width: 30%">
+            <div class="ui header">
+                <i class="add icon"></i>
+                <div class="content">
+                    Bar hinzufügen
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui icon input">
+                <input type="text" placeholder="Name der Bar..." id="newSearchbar">
+                <i class="address card icon"></i>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui fluid multiple search selection dropdown inverted" style="">
+                <input type="hidden" name="tags" id="newTags">
+                <i class="dropdown icon"></i>
+                <div class="default text">Wähle Tags</div>
+                <div class="menu">
+                    <div class="item" data-value="Spiele"></i>Spiele</div>
+                    <div class="item" data-value="Voicechat"></i>Voicechat</div>
+                    <div class="item" data-value="Videochat"></i>Videochat</div>
+                    <div class="item" data-value="Textchat"></i>Textchat</div>
+                    <div class="item" data-value="Bier"></i>Bier</div>
+                    <div class="item" data-value="Wein"></i>Wein</div>
+                    <div class="item" data-value="U21"></i>U21</div>
+                </div>
+            </div>
+            <div class="ui divider"></div>
+            <script> $('.ui.dropdown').dropdown({ maxSelections: 5});</script>
+            <button class="ui primary button" id="create" onclick="addBar()">
+                Erstellen
+            </button>
+        </div>
+        <div style="width: 100%"></div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/h-W3FNPvyeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </body>
 </html>

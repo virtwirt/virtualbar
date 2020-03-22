@@ -104,3 +104,26 @@ function createBars(filter, tags){
    oReq.open("GET", backendBase + "/bars");
    oReq.send();
 }
+
+function addBar() {
+    var bar = {
+        id: Math.round(Math.random()* 1000),
+        name: document.getElementById('newSearchbar').value,
+        rooms: [
+            0: {
+                id: Math.round(Math.random()* 1000),
+                name: "Hauptraum",
+                maxSeats: 15,
+                tags: document.getElementById('newTags').split(","),
+                occupiedSeats: 0
+            },
+            1: {
+                id: Math.round(Math.random()* 1000),
+                name: "Nebenraum",
+                maxSeats: 15,
+                tags: document.getElementById('newTags').split(","),
+                occupiedSeats: 0
+            }
+        ]
+    }
+}
