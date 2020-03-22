@@ -1,5 +1,5 @@
 tr {
-    cursor: url('../cursor.png') 0 64, pointer;
+    cursor: url('../cursor.png') 0 45, pointer;
     transition-duration: 0.3s;
 }
 
