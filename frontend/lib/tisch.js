@@ -2,10 +2,13 @@ var backendBase = "https://virtwirt.de/backend";
 
 function displayName(){
    function reqListener () {
+        var audioPlayer = document.getElementById('audio-player');
+        var audioSource = document.getElementById('audio-source');
         var room = JSON.parse(this.responseText)
         document.getElementById('table').innerHTML = 'Tisch "' + room.name + '"'
         if(room.musicUrl !== undefined && room.musicUrl !== null) {
-          document.getElementById('audio-source').src = room.musicUrl;
+          audioSource.src = room.musicUrl;
+          audioPlayer.load();
         }
         document.getElementById('audio-player').volume = 0.35;
    }
