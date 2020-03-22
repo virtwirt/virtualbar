@@ -129,7 +129,7 @@ function addBar() {
 
    var oReq = new XMLHttpRequest();
    oReq.open("POST", backendBase + "/bars");
-   oReq.addEventListener('load', createBars("", []))
+   oReq.addEventListener('load', location.reload())
    oReq.setRequestHeader("Content-Type", "application/json");
    oReq.send(final);
 }
