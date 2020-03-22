@@ -1,25 +1,9 @@
 var backendBase = "https://digitalbar.newhouse.de/backend";
 
 function createBars(filter, tags){
-    // Vom Server holen
-    /* var bars =
-    [{
-        name:       "Bar1",
-        id:         "adhwndwa",
-        maxGuests:  20,
-        guests:     10,
-        tags: ["Spiele","Voicechat"]
-   },
-   {
-       name:       "Bar2",
-       id:         "adhwndwa",
-       maxGuests:  30,
-       guests:     8,
-       tags: ["Spiele","Videochat"]
-   }]*/
    function reqListener () {
-        console.log(this)
-         var bars = JSON.parse(this.responseText)
+        console.log(oReq)
+         var bars = JSON.parse(oReq.responseText)
         document.getElementById("searchbar").addEventListener("input", (event) => {
             if(event.target.value != filter)
             createBars(event.target.value, tags)

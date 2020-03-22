@@ -3,7 +3,7 @@ var backendBase = "https://digitalbar.newhouse.de/backend";
 function createRooms(){
     // get rooms
     function reqListener () {
-        console.log(this)
+      console.log(this)
       var rooms = JSON.parse(this.responseText);
       for(var i = 0; i < rooms.length; i++) {
           var room = rooms[i];
