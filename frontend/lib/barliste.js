@@ -109,15 +109,14 @@ function addBar() {
     var bar = {
         id: Math.round(Math.random()* 1000),
         name: document.getElementById('newSearchbar').value,
-        rooms: [
-            0: {
+        rooms: [{
                 id: Math.round(Math.random()* 1000),
                 name: "Hauptraum",
                 maxSeats: 15,
                 tags: document.getElementById('newTags').split(","),
                 occupiedSeats: 0
             },
-            1: {
+            {
                 id: Math.round(Math.random()* 1000),
                 name: "Nebenraum",
                 maxSeats: 15,
